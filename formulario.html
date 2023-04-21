@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title> Validacion de formulario con JQuery</title>
-    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <style type ="text/css">
 
 body{
@@ -61,7 +61,7 @@ body{
 </style>
 
 <script> 
-var expr = /^ [a-zA-Z0-9_\.\-]+@[a-zA-Zo-9\-]+\. [a-zA-Ze-91-1. ]+$/;
+var expr = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
 $(document) .ready(function (){
     $("#bEnviar").click(function(){
         var nombre = $("#itNombre").val ();
@@ -74,13 +74,14 @@ $(document) .ready(function (){
         }else{
              $("#mensaje1").fadeOut();
              if(correo =="" || !expr.test(correo)){
-                $("mensaje2").fadeIn();
+                $("#mensaje2").fadeIn();
                 return false;
              }else{
-                $("#mensaje2").fadeout ();
+                $("#mensaje2").fadeOut ();
                 if(asunto ==""){
-                    $("#mensaje3").fadeIn;
+                    $("#mensaje3").fadeIn();
                     return false;
+
                 }
             }
           }
@@ -92,12 +93,12 @@ $(document) .ready(function (){
 </head>
 
 <body>
-            <div id=" container">
+            <div id="container">
             <form id="miformulario">
 
                 <label>*Nombre:</label><br/>
                 <input type="text" id="itNombre" class="campo"/><br />
-                <div id= "mensajel" class="errores">Dame tu nombre</div>
+                <div id= "mensaje1" class="errores">Dame tu nombre</div>
 
                 <label>*Correo electronico:</label><br />
                 <input type="text" id="itMail" class="campo"/><br/>
